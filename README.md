@@ -39,7 +39,6 @@ Simulation results confirm correct synchronous write behavior, asynchronous read
 
 ## 📊 Results
 The design was successfully simulated and verified.  
-Screenshots of the following are included in this repository:
 - **Timing waveform analysis**
   <p align="center">
   <img width="1844" height="750" alt="image" src="https://github.com/user-attachments/assets/b941ac65-7de0-4727-b789-3bec734c6f44" />
