@@ -45,7 +45,9 @@ Screenshots of the following are included in this repository:
   <img width="1844" height="750" alt="image" src="https://github.com/user-attachments/assets/b941ac65-7de0-4727-b789-3bec734c6f44" />
   </p>
 - **RTL schematic view**
-
+<p align="center">
+ <img width="1534" height="837" alt="image" src="https://github.com/user-attachments/assets/29b72b6c-4ada-4df4-807e-07a20c9ac5e0" />
+</p>
 These results validate correct signal timing, data integrity, and synthesized structure of the RAM design.
 
 ---
