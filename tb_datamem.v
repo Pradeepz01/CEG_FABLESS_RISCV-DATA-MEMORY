@@ -1,7 +1,7 @@
 module tb_datamem();
 	
 	// Testbench variables
-  reg clk = 0;
+    reg clk = 0;
 	reg [7:0] data_in;  // 8bit intput word
 	reg [31:0] address;  //32bit address but only a small part is  used for memory(0-4095)
 	reg write_en;       
@@ -52,7 +52,6 @@ module tb_datamem();
 		#0.1;
 		if (wr_data==data_out) begin
 			success_count=success_count+1;
-		
 		end
 		
 		#1;
