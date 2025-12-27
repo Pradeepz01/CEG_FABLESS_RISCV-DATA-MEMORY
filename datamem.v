@@ -2,8 +2,8 @@ module datamem (
     input clk,
     input [31:0] address,
     input write_en,
-    input  [7:0] wdata,
-    output [7:0] rdata
+	input  [7:0] data_in,
+	output [7:0] data_out
     );
 	
 	reg [7:0] ram [0:4095]; //4KB Ram
@@ -15,3 +15,4 @@ module datamem (
 	assign data_out = ram[address];
 
 endmodule
+
