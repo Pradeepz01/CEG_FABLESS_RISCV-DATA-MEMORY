@@ -1,66 +1,56 @@
-# CEG_FABLESS_RISCV-DATA-MEMORY
-This repository contains a team-based implementation of an RV32I RISC-V processor developed by CEG ECE students under the team name **CEG FABLESS DEV**.
-Each team member contributes to an independent processor module. My contribution focuses on the **Data Memory block**, designed with synchronous write and asynchronous read operations.
-## Contributions
-- Data Memory block design
-- Addressed load/store operations with clocked write and combinational read
-- Designed for easy integration into non-pipelined and pipelined architectures
+# Data Memory Testbench
 
-# Single-Port RAM (Asynchronous Read, Synchronous Write)
+This directory contains the Verilog testbench for the data memory module used in the  
+**RISC-V General Purpose Processor** project.
 
-## 📌 Project Overview
-This project implements a **single-port RAM with asynchronous read and synchronous write** using Verilog HDL.  
-The memory is organized as **4K × 8-bit**, addressed through a 32-bit address bus with upper address bits used for address decoding. Write operations occur on the rising edge of the clock, while read operations are purely combinational, allowing immediate data access based on the address.
+The testbench validates correct load and store operations as defined by the RV32I
+instruction set.
 
 ---
 
-## 🧠 Design Details
-- Memory implemented as a **two-dimensional register array (4K × 8-bit)**  
-- **Synchronous write** operation triggered on the positive edge of the clock  
-- **Asynchronous read** operation using combinational logic  
-- Address decoding ensures valid memory access only when the upper address bits are zero  
-- No reset logic is included, reflecting realistic RAM behavior where initial contents are undefined (`X`)
+## Purpose
 
-This design demonstrates core HDL concepts such as memory modeling, address masking, and mixed synchronous–asynchronous behavior.
-
----
-
-## 🧪 Verification & Testing
-A custom testbench was developed to verify correct functionality of the RAM module.  
-The testbench:
-- Performs multiple write and read operations
-- Uses random data values for testing
-- Compares read data against expected values
-- Tracks successful memory operations using a counter
-
-Simulation results confirm correct synchronous write behavior, asynchronous read functionality, and proper address decoding.
+The objective of this testbench is to verify:
+- Correct byte, halfword, and word memory accesses
+- Signed and unsigned load operations
+- Proper address alignment and byte selection
+- Functional correctness of synchronous writes and asynchronous reads
 
 ---
 
-## 📊 Results
-The design was successfully simulated and verified.  
-- **Timing waveform analysis**
-  <p align="center">
-  <img width="1844" height="750" alt="image" src="https://github.com/user-attachments/assets/b941ac65-7de0-4727-b789-3bec734c6f44" />
-  </p>
-- **RTL schematic view**
-<p align="center">
- <img width="1534" height="837" alt="image" src="https://github.com/user-attachments/assets/29b72b6c-4ada-4df4-807e-07a20c9ac5e0" />
-</p>
-These results validate correct signal timing, data integrity, and synthesized structure of the RAM design.
+## Files
+
+- `tb_datamem.v`  
+  Verilog testbench for the data memory module. It exercises load and store
+  instructions such as `LB`, `LH`, `LW`, `LBU`, `LHU`, `SB`, `SH`, and `SW`.
 
 ---
 
-## 🔧 Tools Used
-- **Verilog HDL**
-- **ModelSim** – Simulation and waveform analysis  
-- **Quartus** – RTL elaboration and timing analysis
+## Features Tested
+
+- Synchronous write operations
+- Asynchronous read operations
+- Byte and halfword selection using address offsets
+- Sign extension and zero extension behavior
+- Correct data output for aligned memory accesses
 
 ---
 
-## 📎 Notes
-This RAM module is suitable for learning and experimentation purposes, and can be extended or adapted for use as a data memory block in processor or SoC-based designs.
+## Simulation Results
+
+### Timing Waveform
+
+The waveform below demonstrates correct memory behavior for different load and store
+operations, including byte, halfword, and word accesses.
+
+<img width="1831" height="244" alt="image" src="https://github.com/user-attachments/assets/e1e6689c-7a9a-4f59-b4ef-5276f2da56fa" />
 
 
+---
 
+### Simulation Transcript
 
+The simulation transcript confirms successful execution of the testbench with expected
+data values observed during memory read and write operations.
+
+<img width="844" height="243" alt="image" src="https://github.com/user-attachments/assets/120276a7-acf2-456e-a204-2b5c0e162c6b" />
