@@ -20,7 +20,7 @@ module tb_datamem;
     );
 
     // Clock generation
-    always #5 clk = ~clk;
+    always #1 clk = ~clk;
 
     initial begin
         // Init
